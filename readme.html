@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+        <title></title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+        <link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        
+        <script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+    </head>
+    <body>
+        <h1 id="resurrecting-shakespeare-with-ltsm-recurrent-neural-networks">Resurrecting Shakespeare with LTSM recurrent neural networks</h1>
+<p>Graeme West - 2019-04-28</p>
+<p><img src="https://i.pinimg.com/236x/f6/11/27/f611272ef416195a7726a037d4394de4.jpg" alt="Shakespeare Meme" title="Shakespere Meme"></p>
+<p>This notebook contains an version of the 'Generating Text in the Style of an Example' chapter from Douwe Osinga's <a href="http://shop.oreilly.com/product/0636920097471.do">Deep Learning Cookbook</a> (O'Reilly, 2018).</p>
+<p><em><a href="shakespeare_dnn_ltsm.ipynb">View the notebook HERE</a></em></p>
+<p>The notebook imports the Complete Works of Shakespeare from Project Gutenberg, builds a recurrent neural network model with LTSM layers. The resulting text is somewhat convincing to a casual observer, as long as they aren't a paying too much attention:</p>
+<blockquote>
+<p>Thou smother'st honesty, thou murther'st troth;</p>
+<p>Thou foul abettor! thou notorious bawd!</p>
+<p>Thou plantest scandal and displacest laud:</p>
+<p>Thou ravisher, thou t#he more subject of thy love,</p>
+<p>And therefore thou art a soldier to the state,</p>
+<p>And therefore we have seen the strange seasons,</p>
+<p>And therefore we have seen the streets of the world,</p>
+<p>And therefore we have seen the state of men,</p>
+<p>And therefore we have seen the state of men,</p>
+<p>And therefore we have seen the state of men,</p>
+<p>And therefore we have seen the state of men,</p>
+<p>And therefore we have seen</p>
+</blockquote>
+<p>As you can see, the results can sometimes contain amusingly Elizabethan profanities! Because it's a character-level network, and it's trained on Shakespeare's plays, there are definitely oddities creeping in. Notably, characters used for dramatic prompts (such as the hashmark, used to precede the names of characters in the play, and stage directions), are replicated in the middle of prose.</p>
+<p>Also, the output gets more repetitive the longer it freestyles from the 'seed' text (the starting point in the real corpus).</p>
+<p>The training process took around 20 hours to run 12 epochs through the training data on my MacBook Pro 2016 Core i7. Just for fun, I also tried out the <a href="https://colab.research.google.com/drive/1DWdpYrgDB9cAMj4o2lTjROGLiXxzUFFf">TensorFlow Cloud TPU demo for a very similar Shakespeare-generating RNN</a>. Training on the TPUs took something like four minutes! I guess this shows the power of massively-parallel vector processing.</p>
+
+    </body>
+    </html>
