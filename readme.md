@@ -5,7 +5,7 @@
  
 This notebook contains an version of the 'Generating Text in the Style of an Example' chapter from Douwe Osinga's [Deep Learning Cookbook](http://shop.oreilly.com/product/0636920097471.do) (O'Reilly, 2018).
 
-*[View the notebook HERE](shakespeare_dnn_ltsm.ipynb)*
+*[View the notebook HERE](shakespeare_rnn.ipynb)*
  
 The notebook imports the Complete Works of Shakespeare from Project Gutenberg, builds a recurrent neural network model with LTSM layers. The resulting text is somewhat convincing to a casual observer, as long as they aren't a paying too much attention:
 
